@@ -24,10 +24,10 @@ COPY . .
 RUN npx prisma generate
 
 # Build the application
-RUN cd packages/core && npx tsc
-RUN cd apps/bot && npx tsc
-RUN cd apps/api && npx tsc
-RUN cd apps/monitors && npx tsc
+RUN ./node_modules/.bin/tsc --build packages/core/tsconfig.json
+RUN ./node_modules/.bin/tsc --build apps/bot/tsconfig.json
+RUN ./node_modules/.bin/tsc --build apps/api/tsconfig.json
+RUN ./node_modules/.bin/tsc --build apps/monitors/tsconfig.json
 
 # Production image, copy all the files and run the application
 FROM base AS runner
