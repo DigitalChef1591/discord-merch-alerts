@@ -1,0 +1,43 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+healthcheckPath = "/healthz"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+
+[[services]]
+name = "merch-alerts-bot"
+source = "."
+
+[services.variables]
+NODE_ENV = "production"
+PORT = "3000"
+
+# These will be set via Railway dashboard
+# DISCORD_TOKEN = "${{DISCORD_TOKEN}}"
+# DISCORD_CLIENT_ID = "${{DISCORD_CLIENT_ID}}"
+# DISCORD_GUILD_ID = "${{DISCORD_GUILD_ID}}"
+# DATABASE_URL = "${{DATABASE_URL}}"
+# REDIS_URL = "${{REDIS_URL}}"
+
+[services.healthcheck]
+path = "/healthz"
+timeout = 30
+
+[[services.domains]]
+# Railway will auto-generate domain
+
+# Optional: separate API service
+# [[services]]
+# name = "merch-alerts-api"
+# source = "."
+# 
+# [services.variables]
+# NODE_ENV = "production"
+# PORT = "3000"
+# 
+# [services.build]
+# command = "node apps/api/dist/index.js"

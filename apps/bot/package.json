@@ -1,0 +1,26 @@
+{
+  "name": "@merch-alerts/bot",
+  "version": "1.0.0",
+  "description": "Discord bot for merch drop alerts",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "lint": "eslint src/**/*.ts",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@merch-alerts/core": "*",
+    "@prisma/client": "^5.0.0",
+    "discord.js": "^14.14.1",
+    "bullmq": "^4.15.0",
+    "ioredis": "^5.3.2",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.0",
+    "tsx": "^4.6.0",
+    "typescript": "^5.0.0"
+  }
+}

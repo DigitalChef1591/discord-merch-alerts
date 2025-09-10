@@ -1,0 +1,28 @@
+{
+  "name": "@merch-alerts/api",
+  "version": "1.0.0",
+  "description": "Express API for health checks and admin endpoints",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "lint": "eslint src/**/*.ts",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@merch-alerts/core": "*",
+    "@prisma/client": "^5.0.0",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.0",
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "tsx": "^4.6.0",
+    "typescript": "^5.0.0"
+  }
+}
