@@ -24,7 +24,10 @@ COPY . .
 RUN npx prisma generate
 
 # Build the application
-RUN npx turbo run build
+RUN cd packages/core && npm run build
+RUN cd apps/bot && npm run build
+RUN cd apps/api && npm run build
+RUN cd apps/monitors && npm run build
 
 # Production image, copy all the files and run the application
 FROM base AS runner
